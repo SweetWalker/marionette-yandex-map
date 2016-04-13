@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+
+<div class="manage-aside-menu">
+  <div class="add-btn-container">
+    <button type="button" class="js-add-btn">ADD</button>
+  </div>
+  <ul>
+    {{#each menuItems as |item|}}
+      <li class="menu-item" data-id={{item.id}}>{{item.title}}</li>
+    {{/each}}
+  </ul>
+</div>
+<div id="manage-control-form">
+
+</div>
