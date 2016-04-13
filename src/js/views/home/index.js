@@ -1,11 +1,11 @@
-import MapView from './map';
+import Placemark from './marker';
 import MarkerCollection from '../../collections/placemarkers';
 
 export default Marionette.LayoutView.extend({
-  template: Hub.templates.manage,
+  template: Hub.templates.home,
 
   regions: {
-      mapRegion: '#map-region'
+    mapRegion: '#map-region'
   },
 
   ui: {},
@@ -16,11 +16,20 @@ export default Marionette.LayoutView.extend({
 
   templateHelpers: function() {},
 
-  onRender: function() {
-    this.mapRegion.show(
-      new MapView({
-        collection: new MarkerCollection()
-      })
-    );
+  onShow: function() {
+    ymaps.ready(() => {
+      let map = new ymaps.Map('map-region', {
+        center: [37.64, 55.76],
+        zoom: 12
+      });
+
+      var mapView = new Backbone.Ymaps.CollectionView({
+        map: map,
+        collection: new MarkerCollection(),
+        geoItem: Placemark
+      });
+
+      mapView.render();
+    });
   },
 });

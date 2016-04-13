@@ -5,11 +5,11 @@ const webpack = require('webpack');
 module.exports = {
 	entry: {
 		entry: './src/entry',
-	},	
+	},
 
 	output: {
-		path: __dirname + "/dist",
-		filename: 'bundle.js'
+		path: __dirname + "/public/dist",
+		filename: '2.js'
 	},
 
 	module: {
@@ -22,7 +22,7 @@ module.exports = {
 			}
 		}]
 	},
-	
+
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {

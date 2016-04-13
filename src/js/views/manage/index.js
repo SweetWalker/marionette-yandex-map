@@ -35,7 +35,7 @@ export default Marionette.LayoutView.extend({
   },
 
   addMarker: function() {
-    this.collection.push({ name: 'duck' });
+    this.collection.push({ id: 666, title: 'duck' });
     this.render();
   },
 
